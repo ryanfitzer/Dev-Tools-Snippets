@@ -1,6 +1,6 @@
 (function(){
     
-    window.styleStats = function() {
+    window.stylestats = function() {
     
         var styleSheets = document.styleSheets
             , totalStyleSheets = styleSheets.length
@@ -11,7 +11,7 @@
             var totalRulesInStylesheet,
                 styleSheet = styleSheets[j],
                 rules = styleSheet.cssRules || styleSheet.rules,
-                totalRulesInStylesheet = rules.length,
+                totalRulesInStylesheet = rules ? rules.length : 0,
                 totalSelectorsInStylesheet = 0;
         
             for ( var i = 0, len = totalRulesInStylesheet; i < len; i++ ) {
@@ -26,7 +26,7 @@
             }
             
             console.log( 'Stylesheet: ' + ( styleSheet.href || 'Inline <style> element' ) );
-            console.log( 'Total rules.length: ' +  styleSheet.rules.length );
+            console.log( 'Total rules.length: ' +  ( styleSheet.rules.length || 0 ) );
             console.log( 'Total rules recursive: ' +  totalRulesInStylesheet );
             console.log( 'Total selectors: ' + totalSelectorsInStylesheet );
             console.log( '------\n' );
